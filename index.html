@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">LOREM IPSUM</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item d-lg-block"><a class="nav-link active mx-lg-3 item" href="#">Dolor</a></li>
+                <li class="nav-item d-lg-block"><a class="nav-link mx-lg-3 item" href="#">Sit</a></li>
+                <li class="nav-item d-lg-block"><a class="nav-link mx-lg-3 item" href="#">Amet</a></li>
+
+    
+              <div class="opcionesNavbar d-md-block d-lg-none">
+              <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle" href="#" id="opcionesDropdown" role="button" data-bs-toggle="dropdown">
+                  Opciones
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                  <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                  <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                  <li><a class="dropdown-item" href="#">Opción 4</a></li>
+                </ul>
+              </li>
+            </div>
+            </ul>
+            <form class="d-flex ms-auto" id="searchForm">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                <button class="btn btn-outline-secondary" type="button" id="clearButton">Clear</button>
+              </form>
+          </div>
+        </div>
+      </nav>
+
+<div class="col-lg-9">
+    <h2>Lorem Ipsum...</h2>
+    <div id="textCarousel" class="carousel slide mb-3" data-bs-ride="carousel" data-bs-interval="2000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h4 class="text-center">...Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>
+        </div>
+        <div class="carousel-item">
+          <h4 class="text-center">...Quod, assumenda distinctio. Ad veritatis itaque nulla laboriosam dolorem fugiat </h4>
+        </div>
+        <div class="carousel-item">
+          <h4 class="text-center">...hic ratione animi culpa sequi nihil</h4>
+        </div>
+      </div>
+    </div>
+
+
+ <div class="container-fluid">
+    <div class="row full-height">
+
+      <div class="col-lg-3 d-none d-lg-block p-3">
+        <button class="btn btn-outline-secondary w-100 mb-2">Opción 1</button> 
+        <button class="btn btn-outline-secondary w-100 mb-2">Opción 2</button>
+        <button class="btn btn-outline-secondary w-100 mb-2">Opción 3</button>
+        <button class="btn btn-outline-secondary w-100">Opción 4</button>
+      </div>
+
+      <div class="col-lg-9 p-3" id="textContainer">
+        <div class="col-text">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam alias neque, commodi recusandae non velit provident unde qui quibusdam, quae earum tenetur nesciunt. Rerum placeat error exercitationem aspernatur, doloribus reprehenderit.</p>
+            <p>Doloribus alias dolorem velit quis excepturi incidunt culpa minima quasi! Itaque molestiae vel nostrum quis praesentium sint nesciunt quo fugit? Fuga, eaque.</p>
+            <p>Quia veritatis voluptas, repellat labore voluptatum illum eaque, inventore perspiciatis quaerat qui deserunt soluta nam ipsam minus? Illo suscipit laudantium sed dolor?</p>
+            <p>Expedita doloribus exercitationem dolor vel sunt! Itaque veritatis eius accusantium, sit ullam rem neque corporis a! In ducimus modi similique placeat ea.</p>
+             <p>sit amet consectetur adipisicing elit. Reprehenderit, aut explicabo pariatur, voluptas, voluptatem consequatur sequi ipsa quas cupiditate commodi laudantium vel officiis dolorum cum veritatis praesentium dolore delectus atque?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut labore, facere fugit mollitia quis porro dolore sit itaque, facilis doloremque velit quasi? Officiis id doloribus veniam exercitationem facere placeat iste.</p>
+            <p>Eos reiciendis minima harum maxime voluptas culpa non facere, animi eligendi repellat aut in deleniti assumenda libero, itaque ex, repellendus odio! Harum.</p>
+            <p>Expedita quod amet aspernatur voluptate hic? Nulla impedit quaerat fugit laudantium facilis repudiandae a blanditiis deleniti totam hic, in quos vero aliquam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const searchText = document.getElementById('searchInput').value.toLowerCase().trim();
+        const paragraphs = document.getElementById('textContainer').getElementsByTagName('p');
+
+        for (let paragraph of paragraphs) {
+            const originalText = paragraph.textContent;
+            paragraph.innerHTML = originalText; // Restaurar
+
+            if (searchText && originalText.toLowerCase().includes(searchText)) {
+                const highlighted = originalText.replace(
+                    new RegExp(`(${searchText})`, 'gi'),
+                    '<span class="highlight">$1</span>'
+                );
+                paragraph.innerHTML = highlighted;
+            }
+        }
+    });
+
+    document.getElementById('clearButton').addEventListener('click', function () {
+        document.getElementById('searchInput').value = '';
+        const paragraphs = document.getElementById('textContainer').getElementsByTagName('p');
+
+        for (let paragraph of paragraphs) {
+            paragraph.innerHTML = paragraph.textContent;
+        }
+    });
+</script>
+     
+</body>

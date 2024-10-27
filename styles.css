@@ -1,0 +1,39 @@
+
+.col-text {
+    column-count: 1;
+}
+h2{
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .col-text {
+    column-count: 2;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-text {
+    column-count: 3;
+    }
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
+@media (max-width: 992px) {
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-nav form {
+    order: -1; 
+}
+}
+
+.highlight {
+    background-color: lightblue;
+}
+ 
